@@ -1,6 +1,6 @@
 # Capstone Project — Image Classification with CNN
 
-A CNN-based image classifier built with TensorFlow/Keras, fully Dockerized for easy setup.
+A CNN-based image classifier built with TensorFlow/Keras, fully Dockerized for easy setup. 
 
 ## Prerequisites 
 
