@@ -16,3 +16,6 @@ COPY t1.jpg t2.jpg t3.jpg t4.jpg ./
 
 # Default command: run model training
 CMD ["python", "model_training.py"]
+
+
+
