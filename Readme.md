@@ -2,7 +2,7 @@
 
 A CNN-based image classifier built with TensorFlow/Keras, fully Dockerized for easy setup.
 
-## Prerequisites
+## Prerequisites 
 
 - [Docker](https://docs.docker.com/get-docker/) installed on your machine
 
