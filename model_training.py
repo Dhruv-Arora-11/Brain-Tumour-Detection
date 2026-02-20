@@ -1,5 +1,9 @@
+import os
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
+
+# Create output directory for saving model
+os.makedirs("output", exist_ok=True)
 
 model = Sequential([
     Conv2D(32, (3,3), activation='relu', input_shape=(224, 224, 3)),
@@ -54,10 +58,10 @@ history = model.fit(
 )
 
 
-model.save("trained_model.h5")
+model.save("output/trained_model.h5")
 
 from tensorflow.keras.models import load_model
-model = load_model("trained_model.h5") 
+model = load_model("output/trained_model.h5") 
 
 
 datagen_for_testing = ImageDataGenerator(

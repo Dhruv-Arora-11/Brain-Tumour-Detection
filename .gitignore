@@ -1,2 +1,5 @@
 Testing/
 Training/
+output/
+__pycache__/
+*.pyc

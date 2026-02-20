@@ -1,0 +1,9 @@
+.git
+__pycache__
+*.pyc
+Training/
+Testing/
+output/
+.gitignore
+.gitattributes
+model.ipynb

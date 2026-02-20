@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  # Train the model
+  train:
+    build: .
+    container_name: capstone-train
+    volumes:
+      - ./Training:/app/Training
+      - ./Testing:/app/Testing
+      - ./output:/app/output
+    command: python model_training.py
+
+  # Run prediction on a single image
+  predict:
+    build: .
+    container_name: capstone-predict
+    volumes:
+      - ./output:/app/output
+    command: python predicting_single_image.py
