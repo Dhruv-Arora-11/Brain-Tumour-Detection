@@ -1,0 +1,98 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+.dist/
+dist/
+build/
+develop-eggs/
+.eggs/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Jupyter
+.ipynb_checkpoints
+
+# IDEs
+.idea/
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# OneDrive temp
+~$*
+~*.tmp
+
+# Secrets
+.env
+.env.*
+
+# Logs
+*.log
+
+# Databases
+*.sqlite3
+*.db
+
+# Models and large files
+*.h5
+*.hdf5
+*.ckpt
+*.pt
+*.pth
+brain_tumor_model.h5
+
+# Data folders (common patterns)
+archive*/
+"archive (5)"/
+Training/
+Testing/
+data/
+datasets/
+raw_data/
+processed_data/
+
+# Build/test caches
+.tox/
+.nox/
+.pytest_cache/
+.cache/
+
+# Documentation
+docs/_build/
+
+# Misc
+htmlcov/
+coverage/
