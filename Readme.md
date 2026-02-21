@@ -1,55 +1,100 @@
-# Capstone Project — Image Classification with CNN
+🧠 Brain Tumor Detection API (CNN + Docker)
 
-A CNN-based image classifier built with TensorFlow/Keras, fully Dockerized for easy setup. 
+A Convolutional Neural Network (CNN) based brain tumor classification system built using TensorFlow/Keras and deployed as a Dockerized Flask API.
 
-## Prerequisites 
+📌 Overview
 
-- [Docker](https://docs.docker.com/get-docker/) installed on your machine
+This project provides:
 
-## Project Structure
+CNN model trained for brain tumor classification
 
-```
-├── model_training.py         # Train the CNN model
-├── predicting_single_image.py # Predict on a single image
-├── model.ipynb               # Jupyter notebook (development)
-├── trained_model.h5          # Pre-trained model weights
-├── requirements.txt          # Python dependencies
-├── Dockerfile
-├── docker-compose.yml
-├── Training/                 # Training dataset (not in repo — add your own)
-└── Testing/                  # Testing dataset  (not in repo — add your own)
-```
+REST API built using Flask
 
-## Running with Docker
+Fully Dockerized deployment
 
-### 1. Add your datasets
+Ready for frontend or CI/CD integration
 
-Place your `Training/` and `Testing/` folders in the project root. They should contain sub-folders for each class.
+🛠 Tech Stack
 
-### 2. Train the model
+Python 3.11
 
-```bash
-docker compose up train
-```
+TensorFlow / Keras
 
-The trained model will be saved to the `output/` folder on your host machine.
+Flask
 
-### 3. Run prediction
+Docker
 
-```bash
-docker compose up predict
-```
+📁 Project Structure
+├── app.py                     # Flask API
+├── model_training.py          # Model training script
+├── predicting_single_image.py # Local prediction script
+├── trained_model.h5           # Saved trained model
+├── requirements.txt           # Dependencies
+├── Dockerfile                 # Docker configuration
+├── docker-compose.yml         # Optional compose setup
+└── test_images/               # Sample images (optional)
+🐳 Running with Docker (Recommended)
+1️⃣ Build Docker Image
 
-### Rebuild after code changes
+From the project root directory:
 
-```bash
-docker compose build
-```
+docker build -t brain_tumor_detection .
+2️⃣ Run the Container
+docker run -p 8000:8000 brain_tumor_detection
 
-## Running without Docker
+If successful, you will see:
 
-```bash
-pip install -r requirements.txt
-python model_training.py
-python predicting_single_image.py
-```
+Running on http://127.0.0.1:8000
+
+The API is now live.
+
+📡 API Usage
+Endpoint
+POST /predict
+Full URL
+http://127.0.0.1:8000/predict
+🧪 Testing the API
+🔹 Using Postman
+
+Select POST
+
+URL:
+
+http://127.0.0.1:8000/predict
+
+Go to Body → form-data
+
+Add:
+
+Key	Type	Value
+file	File	Upload image
+
+Click Send
+
+Example Response
+{
+  "prediction": 1
+}
+🔹 Using curl
+curl -X POST -F "file=@t1.jpg" http://127.0.0.1:8000/predict
+🔄 Rebuild After Code Changes
+docker build --no-cache -t brain_tumor_detection .
+⚠ Important Notes
+
+Model expects image size: 224 × 224
+
+Input must be RGB image
+
+API runs on port 8000
+
+This uses Flask development server (not production-grade)
+
+🚀 Future Improvements
+
+Add Gunicorn for production
+
+Add CI/CD pipeline
+
+Connect MERN frontend
+
+Deploy on cloud (AWS / Azure / GCP)
