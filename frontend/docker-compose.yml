@@ -1,0 +1,31 @@
+services:
+  client:
+    build: ./client
+    container_name: neuroscan-client
+    ports:
+      - "5173:5173"
+    depends_on:
+      - server
+
+  server:
+    build: ./server
+    container_name: neuroscan-server
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/neuroscan
+    volumes:
+      - ../trained_model.h5:/app/trained_model.h5
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:7
+    container_name: neuroscan-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
