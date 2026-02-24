@@ -1,5 +1,3 @@
-tensorflow==2.20.0
-numpy==1.26.4
-scikit-learn==1.3.2
-flask
-Pillow
+flask==2.3.3
+flask-cors>=4.0.0
+pillow>=10.0.0
