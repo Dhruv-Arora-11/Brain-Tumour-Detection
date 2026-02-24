@@ -1,4 +1,6 @@
 from tensorflow.keras.preprocessing import image
+from tensorflow.keras.models import load_model
+
 import numpy as np
 
 img_path = "t1.jpg"
@@ -8,7 +10,7 @@ img_array = image.img_to_array(img)
 img_array = img_array / 255.0
 img_array = np.expand_dims(img_array, axis=0)
 
-
+model = load_model("trained_model.h5")
 prediction = model.predict(img_array)
 predicted_index = np.argmax(prediction)
 
