@@ -1,21 +1,18 @@
-# Use official TensorFlow CPU image as base
-FROM tensorflow/tensorflow:2.15.0
-FROM python:3.11
-# Set working directory inside container
+FROM tensorflow/tensorflow:2.20.0
+
 WORKDIR /app
 
-# Copy requirements and install dependencies
+# Copy only the requirements first
 COPY requirements.txt .
-RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt --ignore-installed
-COPY model_training.py .
-COPY predicting_single_image.py .
-COPY trained_model.h5 .
-COPY t1.jpg t2.jpg t3.jpg t4.jpg ./
-COPY app.py .
 
+# Install dependencies while bypassing the system-level distutils conflict
+RUN pip install --no-cache-dir --ignore-installed blinker -r requirements.txt
 
-# Default command: run model training
-CMD ["python", "app.py"]
+# Copy the rest of your files (including the patched app.py and your .h5 model)
+COPY . .
 
+# Open the port for the API
+EXPOSE 8000
 
+# Run the Flask app
+CMD ["python", "-u", "app.py"]
