@@ -49,7 +49,7 @@ async function handleSubmit() {
   formData.append('file', file)   // ✅ must match backend
 
   try {
-    const res = await fetch('http://localhost:8000/predict', {
+    const res = await fetch('https://braintumourdetection-ymya.onrender.com//predict', {
       method: 'POST',
       body: formData,
     })
