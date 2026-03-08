@@ -1,6 +1,8 @@
 import os
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
 
 # Create output directory for saving model
 os.makedirs("output", exist_ok=True)
@@ -9,7 +11,7 @@ model = Sequential([
     Conv2D(32, (3,3), activation='relu', input_shape=(224, 224, 3)),
     MaxPooling2D(2,2),
 
-    Conv2D(64, (3,3), activation='relu'),
+    Conv2D(128, (3,3), activation='relu'),
     MaxPooling2D(2,2),
 
     Conv2D(128, (3,3), activation='relu'),
@@ -18,17 +20,23 @@ model = Sequential([
     Flatten(),
 
     Dense(128, activation='relu'),
-    Dropout(0.5),
+    Dropout(0.4),
 
     Dense(4, activation='softmax')  # 4 classes
 ])
 
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 datagen = ImageDataGenerator(
     rescale = 1./255,
-    validation_split=0.2
+    validation_split=0.2,
+    rotation_range=30,        # rotation
+    width_shift_range=0.1,    # horizontal shift
+    height_shift_range=0.1,   # vertical shift
+    shear_range=0.1,          # shear transform
+    zoom_range=0.2,           # zoom
+    fill_mode='nearest'
 )
+
 train_data = datagen.flow_from_directory(
     "Training",
     target_size = (224,224),
