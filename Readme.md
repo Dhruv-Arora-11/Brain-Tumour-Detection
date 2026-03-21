@@ -26,9 +26,9 @@ Docker
 
 📁 Project Structure
 ├── app.py                     # Flask API
-├── model_training.py          # Model training script
+├── model_training.py        # Model training script
 ├── predicting_single_image.py # Local prediction script
-├── trained_model.h5           # Saved trained model
+├── trained_model.keras           # Saved trained model
 ├── requirements.txt           # Dependencies
 ├── Dockerfile                 # Docker configuration
 ├── docker-compose.yml         # Optional compose setup

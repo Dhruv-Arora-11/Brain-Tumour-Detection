@@ -22,14 +22,14 @@ class PatchedDense(Dense):
 # Load model using the custom object to intercept the layer building
 try:
     model = load_model(
-        "trained_model.h5", 
+        "trained_model.keras", 
         custom_objects={'Dense': PatchedDense}, 
         compile=False
     )
     print("Model loaded successfully!")
 except Exception as e:
     print(f"Error loading model: {e}")
-    raise RuntimeError("Failed to load trained_model.h5")
+    raise RuntimeError("Failed to load trained_model.keras")
 
 
 def preprocess(image):
@@ -69,5 +69,4 @@ def predict():
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=8000)

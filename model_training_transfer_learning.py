@@ -5,7 +5,6 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropou
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from preprocessing import custom_preprocessor
 
-
 base_model = MobileNetV2(
     weights='imagenet',
     include_top=False,
@@ -71,3 +70,5 @@ history = model.fit(
 
 for layer in base_model.layers[-20:]:
     layer.trainable = True
+    
+model.save("trained_model.keras")

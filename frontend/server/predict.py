@@ -6,7 +6,7 @@ from tensorflow.keras.preprocessing import image
 
 CLASS_NAMES = ['Glioma', 'Meningioma', 'No Tumor', 'Pituitary']
 
-model = load_model('../trained_model.h5')
+model = load_model('../trained_model.keras')
 
 img_path = sys.argv[1]
 img = image.load_img(img_path, target_size=(224, 224))

@@ -12,7 +12,7 @@ img_array = custom_preprocessor(img_array)
 img_array = img_array / 255.0
 img_array = np.expand_dims(img_array, axis=0)
 
-model = load_model("trained_model.h5")
+model = load_model("trained_model.keras")
 prediction = model.predict(img_array)
 predicted_index = np.argmax(prediction)
 

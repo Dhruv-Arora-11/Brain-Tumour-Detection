@@ -67,10 +67,10 @@ history = model.fit(
 )
 
 
-model.save("output/trained_model.h5")
+model.save("output/trained_model.keras")
 
 from tensorflow.keras.models import load_model
-model = load_model("output/trained_model.h5") 
+model = load_model("output/trained_model.keras") 
 
 
 datagen_for_testing = ImageDataGenerator(
