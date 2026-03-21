@@ -4,6 +4,7 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.layers import Dense
 from PIL import Image
 from flask_cors import CORS
+from preprocessing import custom_preprocessor
 
 app = Flask(__name__)
 
@@ -34,8 +35,11 @@ except Exception as e:
 def preprocess(image):
     image = image.convert("RGB")
     image = image.resize((224, 224))
-    image = np.array(image) / 255.0
-    image = np.expand_dims(image, axis=0)
+    image = np.array(image)
+    image = custom_preprocessor(image)
+    image = image / 255.0
+    image = np.expand_dims(image, axis=0)  # (1,224,224,3)
+    
     return image
 
 @app.after_request

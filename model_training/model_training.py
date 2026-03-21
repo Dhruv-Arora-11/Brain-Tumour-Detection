@@ -2,7 +2,7 @@ import os
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-
+from preprocessing import custom_preprocessor
 
 # Create output directory for saving model
 os.makedirs("output", exist_ok=True)
@@ -29,6 +29,7 @@ model = Sequential([
 datagen = ImageDataGenerator(
     rescale = 1./255,
     validation_split=0.2,
+    preprocessing_function=custom_preprocessor,
     rotation_range=30,        # rotation
     width_shift_range=0.1,    # horizontal shift
     height_shift_range=0.1,   # vertical shift
