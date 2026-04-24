@@ -13,7 +13,6 @@ This project provides:
 
 ## 🛠 Tech Stack
 
-
 - **Language:** Python 3.11
 - **Frameworks:** TensorFlow / Keras, Flask
 - **Containerization:** Docker & Docker Compose
