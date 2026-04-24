@@ -10,7 +10,6 @@ This project provides:
 - **Fully Dockerized** deployment for consistency across environments.
 - Ready for frontend or CI/CD integration.
 
-
 ## 🛠 Tech Stack
 
 - **Language:** Python 3.11
