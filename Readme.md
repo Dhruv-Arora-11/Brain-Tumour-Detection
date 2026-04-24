@@ -16,7 +16,6 @@ This project provides:
 - **Frameworks:** TensorFlow / Keras, Flask
 - **Containerization:** Docker & Docker Compose
 
-
 ## 📁 Project Structure
 
 ```text
