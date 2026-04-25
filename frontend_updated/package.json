@@ -1,0 +1,12 @@
+{
+    "name": "neuroscan-frontend",
+    "version": "1.0.0",
+    "scripts": {
+        "client": "cd client && npm run dev",
+        "server": "node server/server.js",
+        "dev": "concurrently \"npm run server\" \"npm run client\""
+    },
+    "dependencies": {
+        "concurrently": "^9.1.0"
+    }
+}
